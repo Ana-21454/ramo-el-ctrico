@@ -77,34 +77,58 @@ ol li {
 .rd-navbar-nav > li:hover {
   background-color: transparent;
 }
-
-.menuvertical {
-  position: absolute;
-  top: 100%; /* Justo debajo del menú */
-  left: 0;
-  background-color: #1044f1;
-  display: none; /* oculto por defecto */
-  list-style: none;
-  width: 200px;
-  z-index: 1000;
-  border-radius: 5px;
+.services-terri {
+  position:relative;
+  width: 370px;
+  height: 250px;
   overflow: hidden;
+  background-color: #888; /* solo por si falla la imagen */
 }
 
-.rd-navbar-nav li:hover>.menuvertical {
+.services-terri-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.menuvertical li a {
-  display: block;
+.services-terri-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 
-.menuvertical li a:hover {
-  background-color: #0d35c0;
+.icon-circle {
+  width: 64px;
+  height: 64px;
+  background-color: #673ab7; /* color púrpura */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+  border: 4px solid #e0e0e0;
+}
+
+.icon-circle span {
+  font-size: 28px;
+  color: white;
+}
+
+.services-terri-title a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+.icon-circle i {
+  font-size: 36px; /* antes estaba en 28px */
+  color: white;
+}
+#productos {
+	margin-top: -10px;
 }
 
 
