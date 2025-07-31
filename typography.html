@@ -11,6 +11,258 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Estilos para la sección de testimonios */
+        .testimonials-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .testimonials-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #1798d4, #17a2b8);
+            border-radius: 2px;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .testimonials-carousel {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            flex-shrink: 0;
+            padding: 0 20px;
+        }
+        
+        .testimonial-content {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            font-size: 120px;
+            color: #1798d4;
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1798d4;
+            box-shadow: 0 4px 12px rgba(23, 152, 212, 0.3);
+        }
+        
+        .author-info h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: #1798d4;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .carousel-controls {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .carousel-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #1798d4;
+            color: #1798d4;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-btn:hover {
+            background: #1798d4;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(23, 152, 212, 0.4);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: #1798d4;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active::after {
+            width: 100%;
+            height: 100%;
+        }
+
+        .indicator:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 60px 0;
+            }
+
+            .testimonials-section h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .testimonial-content {
+                padding: 30px 25px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .author-image {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .carousel-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonials-container {
+                padding: 0 10px;
+            }
+
+            .testimonial-card {
+                padding: 0 10px;
+            }
+
+            .testimonial-content {
+                padding: 25px 20px;
+            }
+        }
+  </style>
   </head>
   <body>
     <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -45,11 +297,13 @@
                 <ul class="rd-navbar-nav">
                   <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Inicio</a>
                   </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
+                  </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Productos</a>
                   </li>
-                  <li class="rd-nav-item active"><a class="rd-nav-link" href="typography.html">Novedades</a>
+                  <li class="rd-nav-item active"><a class="rd-nav-link" href="typography.html">Innovacion</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="contactos.html">Contáctanos</a>
                   </li>
                 </ul>
               </div>
@@ -187,6 +441,67 @@
           </div>
         </div>
       </section>
+    <!-- Sección de Testimonios -->
+    <section class="testimonials-section">
+        <h2>¿Qué dicen nuestros clientes?</h2> 
+        <div class="testimonials-container">
+            <div class="testimonials-carousel">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"El establecimiento comercial El Ramo eléctrico cuenta con personal capacitado para suplir las necesidades y dudas de los clientes. Gracias al establecimiento me orienté en buenas instalaciones eléctricas y productos adecuados para eso."</p>
+                        <div class="testimonial-author">
+                            <img src="images/Logos/icon.jpg" alt="Cliente satisfecho" class="author-image">
+                            <div class="author-info">
+                                <h4>Nohemy Tobos</h4>
+                                <p>Cliente desde 2012</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Trabajo como electricista, y el establecimiento comercial siempre me ha ofrecido productos de buena calidad y bien garantizados. Además, me han ayudado a ampliar mi oferta laboral recomendándome a los clientes."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Cliente satisfecho" class="author-image">
+                            <div class="author-info">
+                                <h4>Alberto Sanabria</h4>
+                                <p>Electricista - Cliente desde 1990</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Me gusta visitar el local ya que cuenta con personal amigable y capacitado. Ademas, los productos que he tenido la oportunidad de comprar han salido de excelente calidad."</p>
+                        <div class="testimonial-author">
+                            <img src="images/Logos/ichombre.png" alt="Cliente satisfecho" class="author-image">
+                            <div class="author-info">
+                                <h4>Hernando Sierra</h4>
+                                <p>Cliente residencial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Controles del carrusel -->
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn">&#10094;</button>
+                <button class="carousel-btn next-btn">&#10095;</button>
+            </div>
+            
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <div class="indicator active" data-index="0"></div>
+                <div class="indicator" data-index="1"></div>
+                <div class="indicator" data-index="2"></div>
+            </div>
+        </div>
+    </section>
       <!--Circuitos-->
       <section class="section oh">
   <div class="container">
@@ -208,7 +523,7 @@
   </div>
 </section>
 <!-- Section CTA-->
-      <section class="primary-overlay section parallax-container" data-parallax-img="images/logoS/solar.jpg">
+      <section class="primary-overlay section parallax-container" data-parallax-img="images/LOGOS/solar.jpg">
         <div class="parallax-content section-xl context-dark text-md-left">
           <div class="container">
             <div class="row justify-content-end">
@@ -278,5 +593,128 @@
   <div class="snackbars" id="form-output-global"></div>
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.testimonials-carousel');
+            const cards = document.querySelectorAll('.testimonial-card');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const cardCount = cards.length;
+            
+            // Función para actualizar el carrusel
+            function updateCarousel() {
+                const translateX = -(currentIndex * 100);
+                carousel.style.transform = `translateX(${translateX}%)`;
+                
+                // Actualizar indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Evento para botón anterior
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : cardCount - 1;
+                updateCarousel();
+                resetAutoSlide();
+            });
+            
+            // Evento para botón siguiente
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < cardCount - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+                resetAutoSlide();
+            });
+            
+            // Evento para indicadores
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = parseInt(indicator.getAttribute('data-index'));
+                    updateCarousel();
+                    resetAutoSlide();
+                });
+            });
+            
+            // Auto-avance cada 6 segundos
+            let autoSlide = setInterval(() => {
+                currentIndex = (currentIndex < cardCount - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 6000);
+            
+            // Función para reiniciar el auto-avance
+            function resetAutoSlide() {
+                clearInterval(autoSlide);
+                autoSlide = setInterval(() => {
+                    currentIndex = (currentIndex < cardCount - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                }, 6000);
+            }
+            
+            // Pausar auto-avance al hacer hover
+            const carouselContainer = document.querySelector('.testimonials-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                resetAutoSlide();
+            });
+            
+            // Soporte para gestos táctiles en móviles
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isDragging = false;
+            
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isDragging = true;
+            }, {passive: true});
+            
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, {passive: false});
+            
+            carousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                isDragging = false;
+            }, {passive: true});
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Deslizar izquierda (siguiente)
+                        currentIndex = (currentIndex < cardCount - 1) ? currentIndex + 1 : 0;
+                    } else {
+                        // Deslizar derecha (anterior)
+                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : cardCount - 1;
+                    }
+                    updateCarousel();
+                    resetAutoSlide();
+                }
+            }
+            
+            // Soporte para teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : cardCount - 1;
+                    updateCarousel();
+                    resetAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex < cardCount - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                    resetAutoSlide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -12,6 +12,58 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <style>
+/* ========== BOTÓN WHATSAPP FLOTANTE ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 90px; /* Al lado del botón de scroll */
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: whatsappPulse 2s infinite;
+}
+.whatsapp-float:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    background: #128C7E;
+}
+
+.whatsapp-float .mdi-whatsapp {
+    color: white;
+    font-size: 32px;
+}
+
+@keyframes whatsappPulse {
+    0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1); }
+    100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+}
+@media (max-width: 768px) {
+    .whatsapp-float {
+        right: 80px; /* Menos espacio en móviles */
+        width: 55px;
+        height: 55px;
+    }
+}
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float .mdi-whatsapp { font-size: 28px; }
+
+</style>
   </head>
   <body>
     <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -46,9 +98,9 @@
                 <ul class="rd-navbar-nav">
                   <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Inicio</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Productos</a>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="typography.html">Novedades</a>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">Productos</a>
                   </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
                   </li>
@@ -312,6 +364,15 @@
     </div>
   </div>
 </footer>
+<!-- Botón WhatsApp Flotante -->
+<a href="https://wa.me/573134422317?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20los%20productos%20eléctricos%20de%20El%20Ramo%20Eléctrico." 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp"
+   title="¡Escríbenos por WhatsApp!">
+    <i class="mdi mdi-whatsapp"></i>
+</a>
   <div class="snackbars" id="form-output-global"></div>
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
