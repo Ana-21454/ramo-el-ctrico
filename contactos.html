@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Productos Ramo Eléctrico</title>
+    <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/Logos/2.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CMuli:100,300,400,600,800">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+<style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} 
+      html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+      
+      /* ESTILOS PERSONALIZADOS PARA EL FORMULARIO CON FONDO */
+      .form-background-container {
+        background-image:                  url('images/Logos/buzon.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      
+      /* Efecto de cristal esmerilado */
+      .form-background-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        backdrop-filter: blur(5px);
+        border-radius: 15px;
+        z-index: 1;
+      }
+      
+      .form-background-container .rd-form {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .form-background-container h4 {
+        color: rgb(255, 253, 253) !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      
+      .form-background-container .form-input {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 10px !important;
+        padding: 15px 20px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .form-background-container .form-input:focus {
+        background: rgba(255, 255, 255, 1) !important;
+        border-color: #007bff !important;
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.3) !important;
+        transform: translateY(-2px);
+      }
+      
+      .form-background-container .form-label {
+        background: white !important;
+        color: #666 !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+        font-weight: 500 !important;
+      }
+      
+      .form-background-container .button {
+        background: linear-gradient(45deg, #007bff, #0056b3) !important;
+        border: none !important;
+        border-radius: 50px !important;
+        padding: 15px 40px !important;
+        color: white !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3) !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      
+      .form-background-container .button:hover {
+        background: linear-gradient(45deg, #0056b3, #004085) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4) !important;
+      }
+      
+      .form-background-container .button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+      
+      .form-background-container .button:hover::before {
+        left: 100%;
+      }
+      
+      /* Animaciones */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .form-background-container {
+        animation: fadeInUp 0.8s ease;
+      }
+      
+      .form-background-container .form-wrap {
+        animation: fadeInUp 0.8s ease;
+        animation-fill-mode: both;
+      }
+      
+      .form-background-container .form-wrap:nth-child(1) { animation-delay: 0.1s; }
+      .form-background-container .form-wrap:nth-child(2) { animation-delay: 0.2s; }
+      .form-background-container .form-wrap:nth-child(3) { animation-delay: 0.3s; }
+      .form-background-container .form-wrap:nth-child(4) { animation-delay: 0.4s; }
+      .form-background-container .form-wrap:nth-child(5) { animation-delay: 0.5s; }
+      
+      .form-background-container .button {
+        animation: fadeInUp 0.8s ease 0.6s;
+        animation-fill-mode: both;
+      }
+      
+      /* Responsivo */
+      @media (max-width: 768px) {
+        .form-background-container {
+          padding: 20px;
+          margin: 10px;
+          background-attachment: scroll;
+        }
+        
+        .form-background-container h4 {
+          font-size: 1.5rem;
+        }
+        
+        .form-background-container .button {
+          width: 100%;
+          padding: 18px;
+        }
+      }
+    </style>  
+</head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader" id="loading">
+      <div class="preloader-body">
+        <div id="loading-center-object">
+          <div class="object" id="object_four"></div>
+          <div class="object" id="object_three"></div>
+          <div class="object" id="object_two"></div>
+          <div class="object" id="object_one"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="10px" data-xl-stick-up-offset="10px" data-xxl-stick-up-offset="10px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+               <div class="rd-navbar-brand"><a class="brand" href="index.html"><img src="images/Logos/EL RAMO ELÉCTRICO.png" alt="" width="148" height="31"/></a>
+                </div>
+              </div>
+            <div class="rd-navbar-nav-wrap">
+                <!-- RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
+                  </li>
+                  <li class="rd-nav-item "><a class="rd-nav-link" href="about-us.html">Productos</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="typography.html">Innovacion</a>
+                  </li>
+                  <li class="rd-nav-item active"><a class="rd-nav-link" href="contactos.html">Contáctanos</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="rd-navbar-dummy"></div>
+            </div>
+          </nav>
+        </div>
+      </header>
+<!-- Contacts-->
+      <section class="section section-lg bg-default text-md-left">
+        <div class="container">
+          <div class="row row-60 justify-content-center">
+            <div class="col-lg-8">
+              <div class="form-background-container">
+                <h4 class="text-spacing-25 text-transform-none">Envía tu mensaje</h4>
+                <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <div class="row row-20 gutters-20">
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="contact-your-name-5" type="text" name="name" data-constraints="@Required">
+                        <label class="form-label" for="contact-your-name-5">Nombre*</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="contact-email-5" type="email" name="email" data-constraints="@Email @Required">
+                        <label class="form-label" for="contact-email-5">Correo*</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <!--Select 2-->
+                        <select class="form-input" data-minimum-results-for-search="Infinity" data-constraints="@Required">
+                          <option value="1">Selecciona un servicio</option>
+                          <option value="2">Cotización</option>
+                          <option value="3">Compra</option>
+                          <option value="4">Más informacion</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="contact-phone-5" type="text" name="phone" data-constraints="@Numeric">
+                        <label class="form-label" for="contact-phone-5">Número</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-wrap">
+                        <label class="form-label" for="contact-message-5">Mensaje</label>
+                        <textarea class="form-input textarea-lg" id="contact-message-5" name="message" data-constraints="@Required"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="button button-secondary button-winona" type="submit">Enviar</button>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="aside-contacts">
+                <div class="row row-30">
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">Redes Sociales</p>
+                    <ul class="list-inline contacts-social-list list-inline-sm">
+                      <li><a class="icon mdi mdi-instagram" href="https://www.instagram.com/almacenelramoelectrico"></a></li>
+                      <li><a class="icon mdi mdi-email" href="almacenelramoelectrico@gmail.com"></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">celular</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                      <div class="unit-body"><a class="phone" href="tel:https://wa.me/573134422317?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20los%20productos%20eléctricos%20de%20El%20Ramo%20Eléctrico.">313 4422317</a></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">E-mail</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                      <div class="unit-body"><a class="mail" href="mailto:">almacenelramoelectrico@gmail.com</a></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                    <p class="aside-contacts-title">Dirreccion</p>
+                    <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                      <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                      <div class="unit-body"><a class="address" href="https://maps.app.goo.gl/XawanBib4RCB82Pg6">Sogamoso-Boyacá<br class="d-md-none"><br>Kr 12 #14-45</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- Page Footer-->
+     <footer>
+  <div class="footer-classic-main">
+    <div class="container">
+      <div class="row row-50">
+        <!-- Logo y descripción -->
+        <div class="col-sm-6 col-lg-3 col-xl-3">
+          <a class="brand" href="about-us.html">
+            <img src="images/Logos/EL RAMO ELÉCTRICO.png" alt="" width="270" height="61"/>
+          </a>
+          <p style="max-width: 350px;">Expertos en materiales eléctricos. Desde hace 50 años</p>
+        </div>
+
+        <!-- Sección: Contactános -->
+        <div class="col-sm-6 col-lg-3 col-xl-3">
+          <h4 class="footer-classic-title">Contáctanos</h4>
+          <p>
+            almacenelramoelectrico@gmail.com<br>
+            Tel: (+57) 313 442 2317<br>
+            Cra. 12 #14-45 Boyacá - Sogamoso<br>
+            NIT. 4637615-2 Sierra Gomez
+          </p>
+          <div class="group group-xs">
+            <a class="link link-social-1 mdi mdi-whatsapp" href="https://wa.me/573134422317?text=Me%20interesa%20saber%20acerca%20de%20los%20productos%2C%20dame%20más%20información."></a>
+            <a class="link link-social-1 mdi mdi-instagram" href="https://www.instagram.com/almacenelramoelectrico"></a>
+          </div>
+        </div>
+
+        <!-- Sección: Enlaces útiles -->
+        <div class="col-sm-6 col-lg-3 col-xl-3">
+          <h4 class="footer-classic-title">Enlaces útiles</h4>
+          <p></p>
+          <ul class="list-unstyled">
+            <li><a href="about-us.html">Ultimos Productos</a></li>
+            <li><a href="typography.html">Novedades</a></li>
+            <li><a href="contact-us.html">Contacto y Nosotros</a></li>
+          </ul>
+        </div>
+
+        <!-- Sección: Horario de atención -->
+        <div class="col-sm-6 col-lg-3 col-xl-3">
+          <h4 class="footer-classic-title">Horario de atención</h4>
+          <p>
+            Lunes a Viernes: 8:00 am – 6:30 pm<br>
+            Sábados: 8:00 am – 5:00 pm<br>
+            Domingos: 9:00 am – 12:00 pm<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Botón WhatsApp Flotante -->
+<a href="https://wa.me/573134422317?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20los%20productos%20eléctricos%20de%20El%20Ramo%20Eléctrico." 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp"
+   title="¡Escríbenos por WhatsApp!">
+    <i class="mdi mdi-whatsapp"></i>
+</a>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="js/core.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+    

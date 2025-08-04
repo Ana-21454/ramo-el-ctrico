@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <div class="preloader" id="loading">
       <div class="preloader-body">
         <div id="loading-center-object">
@@ -48,7 +46,9 @@
                   </li>
                   <li class="rd-nav-item active"><a class="rd-nav-link" href="about-us.html">Productos</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Nosotros</a>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="typography.html">Innovacion</a>
+                  </li>
+                  <li class="rd-nav-item "><a class="rd-nav-link" href="contactos.html">Contáctanos</a>
                   </li>
                 </ul>
               </div>
@@ -57,50 +57,6 @@
           </nav>
         </div>
       </header>
-       <!-- Get in Touch-->
-      <section class="section section-md bg-gray-100" style="background-image: url(images/Logos/materiales\ electricos.jpg);">
-        <div class="container">
-          <h3 class="text-center" style="color: white;">¿Necesitas cotizar?</h3>
-          <div class="row justify-content-center">
-            <div class="col-lg-11 col-xl-9">
-              <!-- RD Mailform-->
-              <form class="rd-mailform rd-form" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                <div class="row row-x-16 row-20">
-                  <div class="col-md-6">
-                    <div class="form-wrap">
-                      <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
-                      <label class="form-label" for="contact-name">Nombre</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-wrap">
-                      <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Required @Email">
-                      <label class="form-label" for="contact-email">Email</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-wrap">
-                      <label class="form-label" for="contact-message">Mensaje</label>
-                      <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-wrap">
-                      <input class="form-input" id="contact-phone" type="text" name="phone" data-constraints="@PhoneNumber">
-                      <label class="form-label" for="contact-phone">Telefóno</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-wrap form-button">
-                      <button class="button button-block button-primary" type="submit">Enviar mensaje</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- What We Offer-->
       <section class="section section-md bg-default">
         <div class="container">
@@ -200,6 +156,50 @@
             <div class="col-sm-6 col-lg-4">
               <div class="oh-desktop">
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+       <!-- Get in Touch-->
+      <section class="section section-md bg-gray-100" style="background-image: url(images/Logos/materiales\ electricos.jpg);">
+        <div class="container">
+          <h3 class="text-center" style="color: white;">¿Necesitas cotizar?</h3>
+          <div class="row justify-content-center">
+            <div class="col-lg-11 col-xl-9">
+              <!-- RD Mailform-->
+              <form class="rd-mailform rd-form" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="row row-x-16 row-20">
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                      <label class="form-label" for="contact-name">Nombre</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Required @Email">
+                      <label class="form-label" for="contact-email">Email</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-wrap">
+                      <label class="form-label" for="contact-message">Mensaje</label>
+                      <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-phone" type="text" name="phone" data-constraints="@PhoneNumber">
+                      <label class="form-label" for="contact-phone">Telefóno</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap form-button">
+                      <button class="button button-block button-primary" type="submit">Enviar mensaje</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
