@@ -17,7 +17,7 @@
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
-    right: 90px; /* Al lado del botón de scroll */
+    right: 90px;
     width: 60px;
     height: 60px;
     background: #25D366;
@@ -32,6 +32,7 @@
     text-decoration: none;
     animation: whatsappPulse 2s infinite;
 }
+
 .whatsapp-float:hover {
     transform: scale(1.15);
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
@@ -48,21 +49,199 @@
     50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1); }
     100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
 }
-@media (max-width: 768px) {
-    .whatsapp-float {
-        right: 80px; /* Menos espacio en móviles */
-        width: 55px;
-        height: 55px;
+
+/* ========== BANNER ROTATIVO ========== */
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.carousel-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    animation: slideInUp 1s ease-out;
+}
+
+.carousel-content p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    animation: slideInUp 1s ease-out 0.3s both;
+}
+
+.carousel-content .button {
+    animation: slideInUp 1s ease-out 0.6s both;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 3;
+}
+
+.carousel-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background: #007bff;
+    transform: scale(1.2);
+}
+
+/* Controles de navegación */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 30px;
+}
+
+.carousel-nav.next {
+    right: 30px;
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+/* Responsive */
+@media (max-width: 768px) {
     .whatsapp-float {
         width: 55px;
         height: 55px;
         bottom: 20px;
         right: 20px;
     }
-    .whatsapp-float .mdi-whatsapp { font-size: 28px; }
-
+    
+    .whatsapp-float .mdi-whatsapp { 
+        font-size: 28px; 
+    }
+    
+    .carousel-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .carousel-content p {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .carousel-nav.prev {
+        left: 15px;
+    }
+    
+    .carousel-nav.next {
+        right: 15px;
+    }
+    
+/* Estilos adicionales para demo */
+.rd-navbar { background: #fff; padding: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.rd-navbar-brand img { height: 40px; }
+.rd-navbar-nav { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+.rd-nav-item { margin: 0; }
+.rd-nav-link { text-decoration: none; color: #333; font-weight: 500; }
+.rd-nav-link:hover { color: #007bff; }
+.section { padding: 60px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.bg-gray-100 { background: #f8f9fa; }
+.text-center { text-align: center; }
+.badge { background: #007bff; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 20px; }
+.row { display: flex; flex-wrap: wrap; margin: -15px; }
+.col-sm-6, .col-lg-4 { flex: 0 0 33.333%; padding: 15px; }
+.box-modern { text-align: center; padding: 30px 20px; }
+.box-modern-icon { font-size: 48px; color: #007bff; margin-bottom: 20px; }
+.box-modern-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 15px; }
+footer { background: #333; color: white; padding: 40px 0 20px; }
+}
 </style>
   </head>
   <body>
@@ -113,19 +292,45 @@
           </nav>
         </div>
       </header>
-      <section class="section parallax-container context-dark" data-parallax-img="images/Logos/bienvenidos.jpg">
-        <div class="parallax-content">
-          <!-- FScreen-->
-          <div class="page-header-2-inner">
-            <div class="container">
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-              <div class="block-custom">
-                <div class="group-xl group-middle">
-                  <div><a class="button button-lg button-white button-shadow button-winona wow clipInLeft" href="about-us.html" data-wow-delay=".2s">Ver más</a></div>
-                </div>
-              </div>
-            </div>
+      <!-- BANNER ROTATIVO -->
+      <section class="banner-carousel">
+        <!-- Slide 1 - Bienvenidos -->
+        <div class="carousel-slide active" style="background-image: url('images/Logos/bienvenidos.jpg');">
+          <div class="carousel-content">
+            <br><br><br><br><br><br><br><br><br>
+            <a class="button button-lg button-white button-shadow button-winona" href="about-us.html">Ver más</a>
           </div>
+        </div>
+        
+        <!-- Slide 2 - Productos de Calidad -->
+        <div class="carousel-slide " style="background-image: url('images/Logos/prueba 1.jpg');">
+          <div class="carousel-content">
+            <br><br><br><br><br><br><br><br><br>
+            <a class="button button-lg button-white button-shadow button-winona" href="about-us.html">Nuestros Productos</a>
+          </div>
+        </div>
+        
+        <!-- Slide 3 - Trayectoria (puedes cambiar la imagen) -->
+        <div class="carousel-slide" style="background-image: url('images/Logos/bienvenidos.jpg');">
+          <div class="carousel-content">
+            <br><br><br><br><br><br><br><br><br>
+            <a class="button button-lg button-white button-shadow button-winona" href="contact-us.html">Conoce Nuestra Historia</a>
+          </div>
+        </div>
+        
+        <!-- Controles de navegación -->
+        <button class="carousel-nav prev" onclick="changeSlide(-1)">
+          <i class="mdi mdi-chevron-left"></i>
+        </button>
+        <button class="carousel-nav next" onclick="changeSlide(1)">
+          <i class="mdi mdi-chevron-right"></i>
+        </button>
+        
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <div class="carousel-indicator active" onclick="currentSlide(1)"></div>
+          <div class="carousel-indicator" onclick="currentSlide(2)"></div>
+          <div class="carousel-indicator" onclick="currentSlide(3)"></div>
         </div>
       </section>
       <!-- Meet Alice-->
@@ -299,7 +504,7 @@
         </div>
       </section>
       <!-- About our messenger-->
-      <section class="section parallax-container section-md bg-accent" data-parallax-img="images/Logos/prueba 1.jpg" id="about-us">
+      <section class="section parallax-container section-md bg-accent" data-parallax-img="../images/Logos/prueba 1.jpg" id="about-us">
         <div class="parallax-content">
           <div class="container">
             <div class="row row-50 justify-content-end">
@@ -378,5 +583,184 @@
   <div class="snackbars" id="form-output-global"></div>
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
-</body>
+  <script>
+    // JavaScript del carrusel - VERSION CORREGIDA
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, initializing carousel...');
+        
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        console.log('Found slides:', slides.length);
+        console.log('Found indicators:', indicators.length);
+
+        // Función para mostrar un slide específico
+        function showSlide(index) {
+            console.log('Showing slide:', index);
+            
+            // Remover clase active de todos los slides e indicadores
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                console.log(`Slide ${i} active removed`);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.remove('active');
+                console.log(`Indicator ${i} active removed`);
+            });
+            
+            // Asegurar que el índice esté dentro del rango
+            if (index >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = totalSlides - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+            
+            // Activar el slide e indicador actual
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+            
+            console.log('Current slide index:', currentSlideIndex);
+        }
+
+        // Función para cambiar al siguiente/anterior slide
+        function changeSlide(direction) {
+            console.log('Changing slide by:', direction);
+            showSlide(currentSlideIndex + direction);
+        }
+
+        // Función para ir a un slide específico
+        function currentSlide(index) {
+            console.log('Going to slide:', index);
+            showSlide(index);
+        }
+
+        // Auto-play del carrusel (cambia cada 5 segundos)
+        function autoPlay() {
+            console.log('Auto-play triggered');
+            changeSlide(1);
+        }
+
+        // Iniciar el auto-play
+        function startAutoPlay() {
+            console.log('Starting auto-play');
+            autoPlayInterval = setInterval(autoPlay, 5000);
+        }
+
+        // Pausar auto-play cuando el usuario interactúa
+        function pauseAutoPlay() {
+            console.log('Pausing auto-play');
+            clearInterval(autoPlayInterval);
+            // Reanudar después de 10 segundos
+            setTimeout(() => {
+                startAutoPlay();
+            }, 10000);
+        }
+
+        // Event listeners para los controles
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Previous button clicked');
+                changeSlide(-1);
+                pauseAutoPlay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Next button clicked');
+                changeSlide(1);
+                pauseAutoPlay();
+            });
+        }
+
+        // Event listeners para los indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Indicator clicked:', index);
+                currentSlide(index);
+                pauseAutoPlay();
+            });
+        });
+
+        // Pausar cuando el mouse está sobre el carrusel
+        const carousel = document.querySelector('.banner-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', function() {
+                console.log('Mouse entered carousel - pausing auto-play');
+                clearInterval(autoPlayInterval);
+            });
+
+            // Reanudar cuando el mouse sale del carrusel
+            carousel.addEventListener('mouseleave', function() {
+                console.log('Mouse left carousel - resuming auto-play');
+                startAutoPlay();
+            });
+        }
+
+        // Soporte para gestos táctiles (mobile)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        if (carousel) {
+            carousel.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                console.log('Touch start:', touchStartX);
+            });
+
+            carousel.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                console.log('Touch end:', touchEndX);
+                handleSwipe();
+            });
+        }
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left - siguiente slide
+                console.log('Swipe left detected');
+                changeSlide(1);
+                pauseAutoPlay();
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right - slide anterior
+                console.log('Swipe right detected');
+                changeSlide(-1);
+                pauseAutoPlay();
+            }
+        }
+
+        // Soporte para teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                console.log('Left arrow pressed');
+                changeSlide(-1);
+                pauseAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                console.log('Right arrow pressed');
+                changeSlide(1);
+                pauseAutoPlay();
+            }
+        });
+
+        // Inicializar el carrusel
+        console.log('Initializing carousel...');
+        showSlide(0); // Mostrar el primer slide
+        startAutoPlay(); // Iniciar auto-play
+        
+        console.log('Carousel initialized successfully!');
+    });
+  </script>
+  </body>
 </html>
