@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
     <style>
-/* ========== BOTÓN WHATSAPP FLOTANTE ========== */
+
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -50,7 +50,7 @@
     100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
 }
 
-/* ========== BANNER ROTATIVO ========== */
+
 .banner-carousel {
     position: relative;
     width: 100%;
@@ -223,6 +223,44 @@
         right: 15px;
     }
 }
+/* Estilos para el video como fondo del carrusel */
+.carousel-slide-video {
+    position: relative;
+    overflow: hidden;
+    background: #000; /* Fondo negro mientras carga el video */
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1; /* El video queda atrás como fondo */
+    object-fit: cover;
+}
+
+/* Overlay opcional para mejorar legibilidad del texto */
+.carousel-slide-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* Asegurar que el contenido esté sobre el video y overlay */
+.carousel-slide-video .carousel-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
 </style>
   </head>
   <body>
@@ -248,7 +286,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand" href="index.html"><img src="images/Logos/EL RAMO ELÉCTRICO.png" alt="" width="148" height="31"/></a>
+                <div class="rd-navbar-brand"><a class="brand" href="index.html"><img src="images/Logos/EL RAMO ELÉCTRICO.png" alt="" width="150" height="100"/></a>
                 </div>
               </div>
               <div class="rd-navbar-nav-wrap">
@@ -278,34 +316,34 @@
         <!-- Slide 1 - Bienvenidos -->
         <div class="carousel-slide active" style="background-image: url('images/Logos/bienvenidos.jpg');">
           <div class="carousel-content">
-            <br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <a class="button button-lg button-white button-shadow button-winona" href="about-us.html">Ver más</a>
           </div>
         </div>
         
-        <!-- Slide 2 - Productos de Calidad -->
-        <div class="carousel-slide " style="background-image: url('images/Logos/prueba 1.jpg');">
-          <div class="carousel-content">
-            <br><br><br><br><br><br><br><br><br>
-            <a class="button button-lg button-white button-shadow button-winona" href="about-us.html">Nuestros Productos</a>
-          </div>
-        </div>
+        <!-- Slide 2 - Video con productos -->
+<div class="carousel-slide">
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="images/Logos/360.webm" type="video/webm">
+    </video>
+    <div class="video-overlay"></div> 
+    <div class="carousel-content">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <a class="button button-lg button-white button-shadow button-winona" href="about-us.html">
+            Ver Catálogo
+        </a>
+    </div>
+</div>
         
         <!-- Slide 3 - Trayectoria (puedes cambiar la imagen) -->
-        <div class="carousel-slide" style="background-image: url('images/Logos/bienvenidos.jpg');">
+        <div class="carousel-slide" style="background-image: url('images/Logos/baner3.jpg');">
           <div class="carousel-content">
-            <br><br><br><br><br><br><br><br><br>
-            <a class="button button-lg button-white button-shadow button-winona" href="contact-us.html">Conoce Nuestra Historia</a>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a class="button button-lg button-white button-shadow button-winona" href="contactos.html">Conoce Nuestra Historia</a>
           </div>
         </div>
         
-        <!-- Controles de navegación -->
-        <button class="carousel-nav prev" onclick="changeSlide(-1)">
-          <i class="mdi mdi-chevron-left"></i>
-        </button>
-        <button class="carousel-nav next" onclick="changeSlide(1)">
-          <i class="mdi mdi-chevron-right"></i>
-        </button>
+  
         
         <!-- Indicadores -->
         <div class="carousel-indicators">
@@ -561,6 +599,7 @@
    title="¡Escríbenos por WhatsApp!">
     <i class="mdi mdi-whatsapp"></i>
 </a>
+x  
   <div class="snackbars" id="form-output-global"></div>
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
@@ -672,6 +711,21 @@
                 currentSlide(index);
                 pauseAutoPlay();
             });
+        });
+
+        // Pausar cuando el usuario hace scroll
+        let isScrolling;
+        window.addEventListener('scroll', function() {
+            // Reiniciar el auto-play si el usuario está interactuando con la página
+            clearTimeout(isScrolling);
+            console.log('User is scrolling - pausing auto-play');
+            pauseAutoPlay();
+            
+            // Reiniciar el auto-play después de 2 segundos si el usuario no hace nada
+            isScrolling = setTimeout(function() {
+                console.log('Resuming auto-play after scroll');
+                startAutoPlay();
+            }, 2000);
         });
 
         // Pausar cuando el mouse está sobre el carrusel
